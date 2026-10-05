@@ -1,11 +1,11 @@
 /* globals.css */
 :root {
-  --bg-deep-green: #0F1A15;
-  --bg-cream: #F2E3C6;
-  --accent-blush: #E8B4A6;
-  --primary-gold: #D4AF37;
-  --accent-olive: #8B8A6A;
-  --text-sepia: #5C4033;
+  --bg-deep-green: #0f1a15;
+  --bg-cream: #f2e3c6;
+  --accent-blush: #e8b4a6;
+  --primary-gold: #d4af37;
+  --accent-olive: #8b8a6a;
+  --text-sepia: #5c4033;
 }
 
 * {
@@ -34,16 +34,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
   z-index: 0;
 }
 
 .hero-background {
   position: absolute;
-  top: -10%; 
+  top: -10%;
   left: -5%;
   width: 110%;
-  height: 120%; 
+  height: 120%;
   z-index: 0;
   will-change: transform;
 }
@@ -89,7 +89,7 @@ body {
   font-weight: 400;
   line-height: 1.2;
   color: var(--bg-cream);
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
@@ -109,7 +109,7 @@ body {
   font-family: var(--font-inter), sans-serif;
   font-size: 0.8rem;
   font-weight: 300;
-  letter-spacing: 0.3em; 
+  letter-spacing: 0.3em;
   color: var(--bg-cream);
   text-transform: uppercase;
   border: 1px solid rgba(242, 227, 198, 0.3);
@@ -118,15 +118,16 @@ body {
 }
 
 /* Leaf styles for hero section */
-.leaf-left, .leaf-right {
+.leaf-left,
+.leaf-right {
   position: absolute;
   top: -5%;
   width: 200px;
   height: 200px;
   z-index: 3;
   pointer-events: none;
-  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
-  color: #1C3827;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+  color: #1c3827;
 }
 
 .leaf-left {
@@ -141,7 +142,8 @@ body {
 }
 
 @media (max-width: 768px) {
-  .leaf-left, .leaf-right {
+  .leaf-left,
+  .leaf-right {
     width: 150px;
     height: 150px;
   }
@@ -192,16 +194,33 @@ body {
 }
 
 /* Make them hang at slightly different heights */
-.garland-img.len-1 { height: 180px; }
-.garland-img.len-2 { height: 240px; }
-.garland-img.len-3 { height: 300px; }
+.garland-img.len-1 {
+  height: 180px;
+}
+.garland-img.len-2 {
+  height: 240px;
+}
+.garland-img.len-3 {
+  height: 300px;
+}
 
 @media (max-width: 768px) {
-  .realistic-garland-row-container { padding: 0; top: -5px; }
-  .realistic-garland-item { width: 4.8%; }
-  .garland-img.len-1 { height: 100px; }
-  .garland-img.len-2 { height: 130px; }
-  .garland-img.len-3 { height: 160px; }
+  .realistic-garland-row-container {
+    padding: 0;
+    top: -5px;
+  }
+  .realistic-garland-item {
+    width: 4.8%;
+  }
+  .garland-img.len-1 {
+    height: 100px;
+  }
+  .garland-img.len-2 {
+    height: 130px;
+  }
+  .garland-img.len-3 {
+    height: 160px;
+  }
 }
 
 /* Invitation Section */
@@ -246,9 +265,9 @@ body {
 .marigold {
   width: 20px;
   height: 20px;
-  background: radial-gradient(circle at 30% 30%, #FFB02E, #E65C00);
+  background: radial-gradient(circle at 30% 30%, #ffb02e, #e65c00);
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 2;
   margin-bottom: -2px;
 }
@@ -256,14 +275,18 @@ body {
 .mango-leaf-svg {
   width: 35px;
   height: 50px;
-  color: #2E5A40;
+  color: #2e5a40;
   margin-top: -10px;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 @keyframes sway {
-  from { transform: rotate(-8deg); }
-  to { transform: rotate(8deg); }
+  from {
+    transform: rotate(-8deg);
+  }
+  to {
+    transform: rotate(8deg);
+  }
 }
 
 /* Interactive Gatefold Envelope Styles */
@@ -273,7 +296,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh; 
+  min-height: 100vh;
   padding: 10rem 0;
 }
 
@@ -283,14 +306,14 @@ body {
   max-width: 650px; /* Increased from 500px to make it look less compressed */
   perspective: 2500px;
   /* Adds a slight shadow around the whole envelope */
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
 }
 
 /* Invitation Card - Sits statically, defines the height */
 .invitation-card {
   position: relative;
-  z-index: 10; 
-  background: #F9F1E2; 
+  z-index: 10;
+  background: #f9f1e2;
   border-radius: 12px;
   box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
   width: 100%;
@@ -302,7 +325,7 @@ body {
 }
 
 .invitation-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 10px;
   left: 10px;
@@ -324,26 +347,27 @@ body {
   transform-style: preserve-3d;
 }
 
-.env-left-flap, .env-right-flap {
+.env-left-flap,
+.env-right-flap {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
-  background-image: url('/gatefold.jpg');
+  background-image: url("/gatefold.jpg");
   /* The new generated image is a square (1:1) with wide white margins on the sides. 
      Zooming width to 335% perfectly crops out the 20% white margins on the left/right */
-  background-size: 335% 105%; 
+  background-size: 335% 105%;
   background-repeat: no-repeat;
   cursor: pointer;
   /* Make the pattern visible on both sides when opened to look like a physical letter */
-  backface-visibility: visible; 
+  backface-visibility: visible;
 }
 
 .env-left-flap {
   left: 0;
   transform-origin: left center;
   background-position: 28.57% 50%; /* Mathematically anchors the wax seal perfectly to the right edge */
-  border-radius: 12px 0 0 12px; 
+  border-radius: 12px 0 0 12px;
 }
 
 .env-right-flap {
@@ -377,28 +401,39 @@ body {
   margin: 0 auto 2rem auto;
 }
 
-.separator::before, .separator::after {
-  content: '';
+.separator::before,
+.separator::after {
+  content: "";
   flex: 1;
-  height: 1px;
-  background: var(--primary-gold);
+  height: 2px;
+}
+
+.separator::before {
+  background: linear-gradient(90deg, transparent, var(--primary-gold), #a33a3a);
+}
+
+.separator::after {
+  background: linear-gradient(90deg, #a33a3a, var(--primary-gold), transparent);
 }
 
 .separator-diamond {
-  width: 8px;
-  height: 8px;
-  background: var(--primary-gold);
+  width: 10px;
+  height: 10px;
+  background: #a33a3a;
   transform: rotate(45deg);
-  margin: 0 10px;
+  margin: 0 15px;
+  border: 1px solid var(--primary-gold);
+  box-shadow: 0 0 5px rgba(163, 58, 58, 0.4);
 }
 
 .together-text {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  color: var(--primary-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: #a33a3a; /* Deep rich crimson red */
   text-transform: uppercase;
   margin-bottom: 1rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .names-main {
@@ -415,7 +450,7 @@ body {
 
 .names-main .ampersand {
   font-size: 1.5rem;
-  color: #7A8B76; 
+  color: #7a8b76;
   margin: 0;
   font-style: italic;
 }
@@ -470,7 +505,10 @@ body {
     padding: 1.5rem 0.8rem; /* Relaxed padding slightly to give it an elegant, taller shape */
   }
   .invitation-card::before {
-    top: 8px; left: 8px; right: 8px; bottom: 8px; /* Adjust inner border so it doesn't collide */
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px; /* Adjust inner border so it doesn't collide */
   }
   .names-main {
     font-size: 1.8rem; /* Restored elegant sizing */
@@ -508,7 +546,8 @@ body {
   .parents-names {
     font-size: 0.8rem;
   }
-  .relation, .blessed-by {
+  .relation,
+  .blessed-by {
     font-size: 0.7rem;
   }
   .invite-closing {
@@ -528,7 +567,7 @@ body {
   color: var(--bg-deep-green);
   border: none;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -539,7 +578,7 @@ body {
 
 .floating-music-btn:hover {
   transform: scale(1.1);
-  background: #B8860B;
+  background: #b8860b;
 }
 
 /* Audio Waveform Icon inside button */
@@ -563,14 +602,26 @@ body {
   animation: equalize 0.8s infinite alternate ease-in-out;
 }
 
-.audio-waveform.playing .bar1 { animation-delay: 0.1s; }
-.audio-waveform.playing .bar2 { animation-delay: 0.4s; }
-.audio-waveform.playing .bar3 { animation-delay: 0.2s; }
-.audio-waveform.playing .bar4 { animation-delay: 0.5s; }
+.audio-waveform.playing .bar1 {
+  animation-delay: 0.1s;
+}
+.audio-waveform.playing .bar2 {
+  animation-delay: 0.4s;
+}
+.audio-waveform.playing .bar3 {
+  animation-delay: 0.2s;
+}
+.audio-waveform.playing .bar4 {
+  animation-delay: 0.5s;
+}
 
 @keyframes equalize {
-  0% { height: 4px; }
-  100% { height: 20px; }
+  0% {
+    height: 4px;
+  }
+  100% {
+    height: 20px;
+  }
 }
 
 @media (max-width: 768px) {
