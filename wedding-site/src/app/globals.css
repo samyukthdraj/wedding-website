@@ -1,4 +1,6 @@
+/* globals.css */
 :root {
+  --bg-deep-green: #0F1A15;
   --bg-cream: #F2E3C6;
   --accent-blush: #E8B4A6;
   --primary-gold: #D4AF37;
@@ -23,18 +25,25 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--bg-deep-green);
+}
+
+.hero-background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+  z-index: 0;
 }
 
 .hero-background {
   position: absolute;
-  top: -10%; /* Add buffer for parallax translation */
-  left: 0;
-  width: 100%;
-  height: 120%; /* Add buffer for parallax translation */
+  top: -10%; 
+  left: -5%;
+  width: 110%;
+  height: 120%; 
   z-index: 0;
   will-change: transform;
 }
@@ -45,18 +54,27 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Dark sepia overlay to ensure light cream text is legible */
   background: linear-gradient(
     to bottom,
-    rgba(92, 64, 51, 0.3) 0%,
-    rgba(92, 64, 51, 0.7) 100%
+    rgba(92, 64, 51, 0.4) 0%,
+    rgba(92, 64, 51, 0.9) 100%
   );
   z-index: 1;
 }
 
+.hero-text-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  padding-top: 8vh;
+}
+
 .hero-content {
-  position: relative;
-  z-index: 2;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -66,53 +84,321 @@ body {
 
 .hero-title {
   font-family: var(--font-playfair), serif;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-style: italic;
   font-weight: 400;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+  line-height: 1.2;
   color: var(--bg-cream);
-  text-shadow: 0 4px 20px rgba(92, 64, 51, 0.5);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title .weds {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-family: var(--font-inter), sans-serif;
+  color: var(--primary-gold);
+  margin: 0.8rem 0;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
 .hero-details {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  margin-top: 2rem;
   font-family: var(--font-inter), sans-serif;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: 0.8rem;
   font-weight: 300;
-  letter-spacing: 0.2em; /* tracking-widened */
+  letter-spacing: 0.3em; 
   color: var(--bg-cream);
   text-transform: uppercase;
+  border: 1px solid rgba(242, 227, 198, 0.3);
+  padding: 10px 20px;
+  border-radius: 4px;
 }
 
-.hero-separator {
-  color: var(--primary-gold);
-  font-size: 0.8rem;
+/* Leaf styles */
+.leaf-left, .leaf-right {
+  position: absolute;
+  top: -5%;
+  width: 200px;
+  height: 200px;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+  color: #1C3827;
 }
 
-.scroll-content {
+.leaf-left {
+  left: -20px;
+  transform-origin: top left;
+}
+
+.leaf-right {
+  right: -20px;
+  transform-origin: top right;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 768px) {
+  .leaf-left, .leaf-right {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Invitation Section */
+.invitation-section {
   position: relative;
-  z-index: 10;
+  width: 100%;
   background: var(--bg-cream);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.thoranam-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.thoranam-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.thoranam-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: sway 3s ease-in-out infinite alternate;
+}
+
+.thoranam-item:nth-child(even) {
+  animation-duration: 3.5s;
+}
+
+.marigold {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #FFB02E, #E65C00);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 2;
+  margin-bottom: -2px;
+}
+
+.mango-leaf-svg {
+  width: 35px;
+  height: 50px;
+  color: #2E5A40;
+  margin-top: -10px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+@keyframes sway {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(8deg); }
+}
+
+/* Interactive Gatefold Envelope Styles */
+.env-wrapper {
+  position: relative;
+  display: flex;
   justify-content: center;
-  padding: 4rem 2rem;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh; 
+  padding: 10rem 0;
+}
+
+.env-gatefold-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 650px; /* Increased from 500px to make it look less compressed */
+  perspective: 2500px;
+  /* Adds a slight shadow around the whole envelope */
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+}
+
+/* Invitation Card - Sits statically, defines the height */
+.invitation-card {
+  position: relative;
+  z-index: 10; 
+  background: #F9F1E2; 
+  border-radius: 12px;
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+  width: 100%;
+  padding: 3rem 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.scroll-content h2 {
+.invitation-card::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Flaps completely cover the card when closed */
+.env-gatefold-flaps {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  transform-style: preserve-3d;
+}
+
+.env-left-flap, .env-right-flap {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('/gatefold.jpg');
+  /* The new generated image is a square (1:1) with wide white margins on the sides. 
+     Zooming width to 335% perfectly crops out the 20% white margins on the left/right */
+  background-size: 335% 105%; 
+  background-repeat: no-repeat;
+  cursor: pointer;
+  /* Make the pattern visible on both sides when opened to look like a physical letter */
+  backface-visibility: visible; 
+}
+
+.env-left-flap {
+  left: 0;
+  transform-origin: left center;
+  background-position: 28.57% 50%; /* Mathematically anchors the wax seal perfectly to the right edge */
+  border-radius: 12px 0 0 12px; 
+}
+
+.env-right-flap {
+  right: 0;
+  transform-origin: right center;
+  background-position: 71.42% 50%; /* Mathematically anchors the wax seal perfectly to the left edge */
+  border-radius: 0 12px 12px 0;
+}
+
+.ganesha-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 2rem;
+  mix-blend-mode: multiply;
+}
+
+.blessings-text {
   font-family: var(--font-playfair), serif;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--primary-gold);
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-sepia);
+  margin-bottom: 2rem;
+  max-width: 90%;
 }
 
-.scroll-content p {
-  font-size: 1.2rem;
-  font-weight: 300;
+.separator {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto 2rem auto;
+}
+
+.separator::before, .separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--primary-gold);
+}
+
+.separator-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--primary-gold);
+  transform: rotate(45deg);
+  margin: 0 10px;
+}
+
+.together-text {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.names-main {
+  font-family: var(--font-playfair), serif;
+  font-size: 2.8rem;
   color: var(--text-sepia);
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  line-height: 1.1;
+}
+
+.names-main .ampersand {
+  font-size: 1.5rem;
+  color: #7A8B76; 
+  margin: 0;
+  font-style: italic;
+}
+
+.family-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.family-member {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.relation {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-sepia);
+}
+
+.parents-names {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-sepia);
+}
+
+.blessed-by {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--accent-olive);
+}
+
+.invite-closing {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--primary-gold);
+  margin-top: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
