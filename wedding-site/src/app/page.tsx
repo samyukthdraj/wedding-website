@@ -1,10 +1,19 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { GiMonsteraLeaf } from "react-icons/gi";
 import { FaLeaf } from "react-icons/fa";
 import Image from "next/image";
+
+const AudioWaveform = ({ isPlaying }: { isPlaying: boolean }) => (
+  <div className={`audio-waveform ${isPlaying ? "playing" : ""}`}>
+    <span className="bar bar1"></span>
+    <span className="bar bar2"></span>
+    <span className="bar bar3"></span>
+    <span className="bar bar4"></span>
+  </div>
+);
 
 const Thoranam = () => (
   <div className="thoranam-container">
@@ -24,6 +33,70 @@ const Thoranam = () => (
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
 
+  // Audio State
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const hasInteracted = useRef(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && !audioRef.current) {
+      audioRef.current = new Audio("/bg-music.mp3");
+      audioRef.current.loop = true;
+    }
+
+    const startAudio = () => {
+      if (!hasInteracted.current && audioRef.current) {
+        hasInteracted.current = true;
+        try {
+          audioRef.current.volume = 1;
+          audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Autoplay failed:", err));
+        } catch (err) {
+          console.error("Autoplay exception:", err);
+        }
+        
+        ['click', 'scroll', 'touchstart'].forEach(e => 
+          document.removeEventListener(e, startAudio)
+        );
+      }
+    };
+    
+    if (typeof window !== "undefined") {
+      ['click', 'scroll', 'touchstart'].forEach(e => 
+        document.addEventListener(e, startAudio)
+      );
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        ['click', 'scroll', 'touchstart'].forEach(e => 
+          document.removeEventListener(e, startAudio)
+        );
+      }
+    };
+  }, []);
+
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      try {
+        audioRef.current.volume = 1;
+        if (isPlaying) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        } else {
+          audioRef.current.play().then(() => {
+            setIsPlaying(true);
+          }).catch((err) => {
+            console.error("Audio playback error:", err);
+            alert("Error playing music. The file format might be unsupported.");
+          });
+        }
+      } catch (err) {
+        console.error("Audio sync error:", err);
+        alert("Browser could not read the audio file format.");
+      }
+    }
+  };
+
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -41,6 +114,14 @@ export default function Home() {
 
   return (
     <main>
+      <button 
+        className="floating-music-btn"
+        onClick={toggleMusic}
+        aria-label="Toggle Music"
+      >
+        <AudioWaveform isPlaying={isPlaying} />
+      </button>
+
       <div ref={heroRef} className="hero-container">
         <div className="hero-background-wrapper">
           <motion.div
