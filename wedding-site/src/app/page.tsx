@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { GiMonsteraLeaf } from "react-icons/gi";
-import { FaLeaf } from "react-icons/fa";
 import Image from "next/image";
 
 const AudioWaveform = ({ isPlaying }: { isPlaying: boolean }) => (
@@ -15,20 +14,47 @@ const AudioWaveform = ({ isPlaying }: { isPlaying: boolean }) => (
   </div>
 );
 
-const Thoranam = () => (
-  <div className="thoranam-container">
-    {Array.from({ length: 14 }).map((_, i) => (
-      <div
-        key={i}
-        className="thoranam-item"
-        style={{ animationDelay: `${i * 0.1}s` }}
-      >
-        <div className="marigold" />
-        <FaLeaf className="mango-leaf-svg" />
-      </div>
-    ))}
-  </div>
+const RealisticGarland = ({ delay = 0, length = 1, flip = false }: { delay?: number; length?: number; flip?: boolean }) => (
+  <motion.div
+    className="realistic-garland-item"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1, rotate: [-1.5, 1.5, -1.5] }}
+    transition={{
+      opacity: { duration: 2 },
+      rotate: { repeat: Infinity, duration: 5 + (length * 0.5), ease: "easeInOut", delay },
+    }}
+  >
+    <Image 
+      src="/lotus-garland-transparent.jpg" 
+      alt="Lotus Garland" 
+      width={100} 
+      height={350} 
+      className={`garland-img len-${length}`}
+      style={{
+        transform: flip ? 'scaleX(-1)' : 'none',
+        filter: 'contrast(1.05)'
+      }}
+      priority
+    />
+  </motion.div>
 );
+
+const GarlandRow = () => {
+  const pattern = [1, 2, 1, 3, 2, 1, 2, 3, 1, 2, 1, 3, 2, 1, 2, 3, 1, 2, 1, 3];
+  
+  return (
+    <div className="realistic-garland-row-container">
+      {pattern.map((len, i) => (
+        <RealisticGarland 
+          key={i} 
+          delay={i * 0.15} 
+          length={len} 
+          flip={i % 2 === 0} 
+        />
+      ))}
+    </div>
+  );
+};
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -195,8 +221,8 @@ export default function Home() {
       </div>
 
       <div className="invitation-section">
-        <div className="thoranam-wrapper">
-          <Thoranam />
+        <div className="garland-row-wrapper">
+          <GarlandRow />
         </div>
 
         <div className="env-wrapper">

@@ -117,7 +117,7 @@ body {
   border-radius: 4px;
 }
 
-/* Leaf styles */
+/* Leaf styles for hero section */
 .leaf-left, .leaf-right {
   position: absolute;
   top: -5%;
@@ -153,6 +153,55 @@ body {
     right: -35px;
     top: -10px;
   }
+}
+
+/* Realistic Hanging Floral Garlands Row */
+.garland-row-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  mix-blend-mode: multiply; /* Applied to the wrapper to bypass stacking context issues! */
+  pointer-events: none; /* Let clicks pass through to the envelope */
+}
+
+.realistic-garland-row-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1%;
+  position: absolute;
+  top: -15px;
+  left: 0;
+}
+
+.realistic-garland-item {
+  transform-origin: top center;
+  position: relative;
+  width: 4.5%;
+  display: flex;
+  justify-content: center;
+}
+
+.garland-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Make them hang at slightly different heights */
+.garland-img.len-1 { height: 180px; }
+.garland-img.len-2 { height: 240px; }
+.garland-img.len-3 { height: 300px; }
+
+@media (max-width: 768px) {
+  .realistic-garland-row-container { padding: 0; top: -5px; }
+  .realistic-garland-item { width: 4.8%; }
+  .garland-img.len-1 { height: 100px; }
+  .garland-img.len-2 { height: 130px; }
+  .garland-img.len-3 { height: 160px; }
 }
 
 /* Invitation Section */
