@@ -1,0 +1,118 @@
+:root {
+  --bg-cream: #F2E3C6;
+  --accent-blush: #E8B4A6;
+  --primary-gold: #D4AF37;
+  --accent-olive: #8B8A6A;
+  --text-sepia: #5C4033;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-cream);
+  color: var(--text-sepia);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+.hero-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-background {
+  position: absolute;
+  top: -10%; /* Add buffer for parallax translation */
+  left: 0;
+  width: 100%;
+  height: 120%; /* Add buffer for parallax translation */
+  z-index: 0;
+  will-change: transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Dark sepia overlay to ensure light cream text is legible */
+  background: linear-gradient(
+    to bottom,
+    rgba(92, 64, 51, 0.3) 0%,
+    rgba(92, 64, 51, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  color: var(--bg-cream);
+  text-shadow: 0 4px 20px rgba(92, 64, 51, 0.5);
+}
+
+.hero-details {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-weight: 300;
+  letter-spacing: 0.2em; /* tracking-widened */
+  color: var(--bg-cream);
+  text-transform: uppercase;
+}
+
+.hero-separator {
+  color: var(--primary-gold);
+  font-size: 0.8rem;
+}
+
+.scroll-content {
+  position: relative;
+  z-index: 10;
+  background: var(--bg-cream);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.scroll-content h2 {
+  font-family: var(--font-playfair), serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-gold);
+}
+
+.scroll-content p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text-sepia);
+}
