@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Midhuna & Gautham - Wedding Invitation Website
 
-## Getting Started
+A beautifully crafted, highly interactive wedding invitation website. It features a rich Indian-inspired design aesthetic, seamless CSS animations, interactive elements like a gatefold envelope, and a built-in background music player.
 
-First, run the development server:
+## 🚀 Tech Stack & Libraries
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, React 18)
+- **Language**: TypeScript
+- **Styling**: Vanilla CSS with custom design tokens (`globals.css`)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) for complex scroll-driven and spring animations, and native CSS keyframes for organic continuous movements.
+- **Icons**: `react-icons` (Game Icons, Font Awesome, Feather)
+- **Media**: HTML5 Audio API for seamless background music
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Design System
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application strictly follows a curated Indian-wedding color palette defined in `rules.md`:
+- **Deep Emerald/Forest Green** (`#0f1a15`)
+- **Warm Beige/Cream** (`#f2e3c6`)
+- **Soft Peach/Blush** (`#e8b4a6`)
+- **Golden Yellow/Ochre** (`#d4af37`)
+- **Deep Crimson Red** (`#a33a3a`)
+- **Muted Olive Green** (`#8b8a6a`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Key Features & Animations
 
-## Learn More
+1. **Parallax Hero Section**: 
+   - Uses Framer Motion's `useScroll` to map the scroll position to Y-axis transformations for a stunning parallax effect.
+   - The hero background has a continuous, slow, 30-second breathing/zoom animation using Framer Motion's `mirror` repeat type.
+   - Monstera leaves gently sway infinitely in the foreground using `rotate` easing.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Ultra-Realistic Floral Canopy**:
+   - The transition to the envelope section is adorned with 20 incredibly realistic AI-generated jasmine and pink lotus garlands.
+   - **Technical Highlight**: Leverages `mix-blend-mode: multiply` to perfectly melt the image's pure white background into the site's cream background, creating a flawless transparent effect without heavy PNGs.
+   - Uses structural CSS to randomly shift the heights (`.len-1`, `.len-2`, `.len-3`) and rotate orientations (`scaleX(-1)`) of the garlands so they look uniquely organic.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Interactive Gatefold Envelope**:
+   - An interactive, clickable envelope that opens smoothly to reveal the actual invitation card.
+   - Built using 3D CSS transforms (`perspective: 2500px`, `transform-style: preserve-3d`). 
+   - The flaps open on a virtual hinge (`transform-origin`) using a smooth easing curve when the `isOpen` React state is toggled.
+   - The wax seal is split mathematically in the CSS background positioning to look authentic when the envelope splits open.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Background Music Player**:
+   - Custom-built, floating equalizer button in the bottom right corner.
+   - Uses pure CSS keyframes (`equalize`) with staggered animation delays (`0.1s`, `0.2s`, `0.4s`) to simulate an active sound wave when music is playing.
+   - Auto-plays the music as soon as the user interacts with the page (scrolling or clicking) to bypass modern browser autoplay blocking restrictions.
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `src/app/page.tsx`: Main React component holding the state, scroll tracking, audio logic, and Framer Motion declarations.
+- `src/app/globals.css`: Contains all custom animations, layout logic, typography, media queries, and design tokens.
+- `public/`: Houses all static assets, including the high-resolution AI-generated lotus garlands, hero backgrounds, and audio files.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Running Locally
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.

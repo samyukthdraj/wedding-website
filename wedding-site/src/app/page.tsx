@@ -61,45 +61,54 @@ export default function Home() {
 
   // Audio State
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Default state is playing
   const hasInteracted = useRef(false);
 
   useEffect(() => {
     if (typeof window !== "undefined" && !audioRef.current) {
       audioRef.current = new Audio("/bg-music.mp3");
       audioRef.current.loop = true;
+      
+      // Attempt immediate autoplay on page load
+      audioRef.current.play()
+        .then(() => {
+          hasInteracted.current = true;
+        })
+        .catch(() => {
+          console.log("Autoplay blocked by browser. Waiting for user interaction to resume audio.");
+        });
     }
 
-    const startAudio = () => {
-      if (!hasInteracted.current && audioRef.current) {
-        hasInteracted.current = true;
-        try {
-          audioRef.current.volume = 1;
-          audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Autoplay failed:", err));
-        } catch (err) {
-          console.error("Autoplay exception:", err);
-        }
-        
-        ['click', 'scroll', 'touchstart'].forEach(e => 
-          document.removeEventListener(e, startAudio)
-        );
+    const forcePlayAudio = () => {
+      if (audioRef.current && audioRef.current.paused && isPlaying) {
+        audioRef.current.play()
+          .then(() => {
+            hasInteracted.current = true;
+            // Successfully resumed
+            ['click', 'scroll', 'touchstart', 'mousemove'].forEach(e => 
+              document.removeEventListener(e, forcePlayAudio)
+            );
+          })
+          .catch(() => {
+            // Still blocked
+          });
       }
     };
     
     if (typeof window !== "undefined") {
-      ['click', 'scroll', 'touchstart'].forEach(e => 
-        document.addEventListener(e, startAudio)
+      ['click', 'scroll', 'touchstart', 'mousemove'].forEach(e => 
+        document.addEventListener(e, forcePlayAudio)
       );
     }
 
     return () => {
       if (typeof window !== "undefined") {
-        ['click', 'scroll', 'touchstart'].forEach(e => 
-          document.removeEventListener(e, startAudio)
+        ['click', 'scroll', 'touchstart', 'mousemove'].forEach(e => 
+          document.removeEventListener(e, forcePlayAudio)
         );
       }
     };
-  }, []);
+  }, [isPlaying]);
 
   const toggleMusic = () => {
     if (audioRef.current) {
