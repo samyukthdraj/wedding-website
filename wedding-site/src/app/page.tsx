@@ -3,6 +3,7 @@ import { Envelope } from "../components/Envelope";
 import { GarlandRow } from "../components/GarlandRow";
 import { AudioPlayer } from "../components/AudioPlayer";
 import { EventsSection } from "../components/EventsSection";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
           <GarlandRow />
         </div>
 
-        <Envelope />
+        <Suspense fallback={<div className="env-wrapper" />}>
+          <Envelope />
+        </Suspense>
       </div>
 
       <EventsSection />

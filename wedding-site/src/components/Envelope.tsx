@@ -2,9 +2,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 export const Envelope = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Idiomatic Next.js way to read URL params
+  const searchParams = useSearchParams();
+  const guest = searchParams.get("guest");
+  const guestName = guest ? guest.replace(/-/g, " ") : null;
 
   const toggleEnvelope = () => {
     setIsOpen(!isOpen);
@@ -26,10 +32,14 @@ export const Envelope = () => {
             className="ganesha-icon"
           />
 
-          <p className="blessings-text">
-            With the blessings of the Almighty and the love of our families,
-            we joyfully request the honour of your presence as Midhuna &
-            Gautham begin their forever journey.
+          {guestName && (
+            <h3 className="guest-greeting">Dear {guestName},</h3>
+          )}
+
+          <p className="blessings-text" style={{ marginTop: guestName ? '0.5rem' : '1.5rem' }}>
+            {guestName 
+              ? "With the blessings of the Almighty, we joyfully request the honour of your presence as Midhuna & Gautham begin their forever journey."
+              : "With the blessings of the Almighty and the love of our families, we joyfully request the honour of your presence as Midhuna & Gautham begin their forever journey."}
           </p>
 
           <div className="separator">
