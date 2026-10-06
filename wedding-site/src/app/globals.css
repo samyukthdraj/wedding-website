@@ -14,7 +14,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   background: var(--bg-cream);
   color: var(--text-sepia);
   font-family: var(--font-inter), sans-serif;
@@ -626,5 +627,185 @@ html, body {
     width: 45px;
     height: 45px;
     font-size: 1rem;
+  }
+}
+
+/* Events Section */
+.events-section {
+  width: 100%;
+  padding: 3rem 2rem 8rem 2rem;
+  background-color: var(--bg-cream);
+  background-image: radial-gradient(circle at center, rgba(232, 180, 166, 0.45) 0%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.watermark-pattern {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 6rem; /* Spacious gap for elegance and lack of clutter */
+  z-index: 0; /* Strictly behind text and images */
+  pointer-events: none;
+}
+
+.watermark-item {
+  color: #E8B4A6;
+  font-size: 8rem;
+  opacity: 0.3;
+  transform: rotate(15deg);
+}
+
+.events-title, .events-grid {
+  z-index: 10;
+  position: relative; /* Ensure text and cards stay above the pattern */
+}
+
+.events-title {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(3rem, 5vw, 4rem);
+  color: var(--text-sepia);
+  margin-bottom: 5rem;
+  text-align: center;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Polaroid Effect */
+.polaroid-wrapper {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.polaroid {
+  background: #ffffff;
+  padding: 15px 15px 30px 15px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15),
+    0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.polaroid-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #eee;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.polaroid-img {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid:hover .polaroid-img {
+  transform: scale(1.03);
+}
+
+.polaroid-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.polaroid-caption {
+  font-family: var(--font-playfair), serif;
+  font-size: 2.2rem;
+  color: var(--text-sepia);
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.event-details-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--primary-gold);
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+}
+
+.info-label {
+  font-family: var(--font-playfair), serif;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--primary-gold); /* Strict adherence to rules.md */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-sepia);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.event-icon {
+  font-size: 1.2rem;
+  color: var(--primary-gold);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 5rem;
   }
 }
