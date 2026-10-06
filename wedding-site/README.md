@@ -44,6 +44,20 @@ The application strictly follows a curated Indian-wedding color palette defined 
    - Uses pure CSS keyframes (`equalize`) with staggered animation delays (`0.1s`, `0.2s`, `0.4s`) to simulate an active sound wave when music is playing.
    - Auto-plays the music as soon as the user interacts with the page (scrolling or clicking) to bypass modern browser autoplay blocking restrictions.
 
+5. **Animated Events Section**:
+   - Displays beautiful animated "polaroid" style cards for the Muhurtham and Reception events.
+   - **Smart Add to Calendar Button**: Automatically detects the user's device. On iOS/Mac, it serves an `.ics` file, and on other platforms, it routes to a direct Google Calendar event generation link.
+   - **Interactive Maps**: Integrates embedded Google Maps iframes for each venue, accompanied by a dynamic "Get Directions" routing button.
+
+6. **Serverless RSVP System**:
+   - Fully working RSVP form that directly pushes form submissions into a Google Sheet.
+   - Integrated using a custom Google Apps Script Web App acting as a serverless backend.
+   - Features robust loading states, error handling, and a seamless success UI.
+
+7. **Infinite Fading Background**:
+   - The lower half of the site (Events and RSVP sections) is wrapped in a shared container holding a massively dense `react-icons` grid of lotus icons.
+   - **Seamless Flow**: Uses a CSS `mask-image: linear-gradient` to elegantly fade the grid out at the absolute top and bottom edges, ensuring the pattern never abruptly slices in half on any mobile or desktop screen size.
+
 ## 📁 Project Structure
 
 - `src/app/page.tsx`: Main React component holding the state, scroll tracking, audio logic, and Framer Motion declarations.
