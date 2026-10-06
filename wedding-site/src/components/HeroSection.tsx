@@ -1,24 +1,28 @@
 "use client";
-import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { GiMonsteraLeaf } from "react-icons/gi";
 
 export const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Run only on client
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile(); 
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
 
-  const smoothProgress = useSpring(heroScroll, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  const yBg = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
-  const yText = useTransform(smoothProgress, [0, 1], ["0%", "80%"]);
+  // Disable parallax entirely on mobile devices for perfectly smooth native scrolling
+  const yBg = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "0%" : "50%"]);
+  const yText = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "0%" : "80%"]);
 
   return (
     <div ref={heroRef} className="hero-container">
