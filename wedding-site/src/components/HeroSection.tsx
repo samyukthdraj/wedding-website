@@ -10,7 +10,7 @@ export const HeroSection = () => {
   useEffect(() => {
     // Run only on client
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile(); 
+    checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
@@ -20,11 +20,19 @@ export const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  // Re-enabled parallax for mobile! 
+  // Re-enabled parallax for mobile!
   // By omitting useSpring, we prevent the "vibrating/shaking" physics calculations.
   // We apply a slightly gentler parallax (40%) on mobile to keep it perfectly smooth and readable.
-  const yBg = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "20%" : "50%"]);
-  const yText = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "40%" : "80%"]);
+  const yBg = useTransform(
+    heroScroll,
+    [0, 1],
+    ["0%", isMobile ? "20%" : "50%"],
+  );
+  const yText = useTransform(
+    heroScroll,
+    [0, 1],
+    ["0%", isMobile ? "40%" : "80%"],
+  );
 
   return (
     <div ref={heroRef} className="hero-container">
@@ -94,7 +102,7 @@ export const HeroSection = () => {
             <span className="weds">&</span>
             <span>Gautham</span>
           </h1>
-          <div className="hero-details">ENGAGEMENT • DECEMBER 23, 2026</div>
+          <div className="hero-details">DECEMBER 23, 2026</div>
         </motion.div>
       </div>
     </div>

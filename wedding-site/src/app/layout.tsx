@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Midhuna & Gautham - Engagement",
-  description: "A celebration of love - Midhuna & Gautham's Engagement",
+  title: "Midhuna & Gautham",
+  description: "A celebration of love - Midhuna & Gautham",
   openGraph: {
     images: [
       {
@@ -27,10 +27,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${playfair.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
