@@ -20,9 +20,11 @@ export const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  // Disable parallax entirely on mobile devices for perfectly smooth native scrolling
-  const yBg = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "0%" : "50%"]);
-  const yText = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "0%" : "80%"]);
+  // Re-enabled parallax for mobile! 
+  // By omitting useSpring, we prevent the "vibrating/shaking" physics calculations.
+  // We apply a slightly gentler parallax (40%) on mobile to keep it perfectly smooth and readable.
+  const yBg = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "20%" : "50%"]);
+  const yText = useTransform(heroScroll, [0, 1], ["0%", isMobile ? "40%" : "80%"]);
 
   return (
     <div ref={heroRef} className="hero-container">
