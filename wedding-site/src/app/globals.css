@@ -14,11 +14,13 @@
   padding: 0;
 }
 
-body {
+html, body {
   background: var(--bg-cream);
   color: var(--text-sepia);
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .hero-container {
@@ -144,16 +146,7 @@ body {
 @media (max-width: 768px) {
   .leaf-left,
   .leaf-right {
-    width: 150px;
-    height: 150px;
-  }
-  .leaf-left {
-    left: -35px;
-    top: -10px;
-  }
-  .leaf-right {
-    right: -35px;
-    top: -10px;
+    display: none;
   }
 }
 

@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { GiMonsteraLeaf } from "react-icons/gi";
 
 export const HeroSection = () => {
@@ -11,8 +11,14 @@ export const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const yBg = useTransform(heroScroll, [0, 1], ["0%", "50%"]);
-  const yText = useTransform(heroScroll, [0, 1], ["0%", "80%"]);
+  const smoothProgress = useSpring(heroScroll, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const yBg = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
+  const yText = useTransform(smoothProgress, [0, 1], ["0%", "80%"]);
 
   return (
     <div ref={heroRef} className="hero-container">
