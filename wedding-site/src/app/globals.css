@@ -14,7 +14,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   background: var(--bg-cream);
   color: var(--text-sepia);
   font-family: var(--font-inter), sans-serif;
@@ -495,6 +496,9 @@ html, body {
   .env-wrapper {
     padding: 5rem 0 3rem 0; /* Pushed even closer to the top */
     min-height: auto;
+  }
+  .env-gatefold-wrapper {
+    max-width: 350px; /* Safely caps the width for ALL mobile sizes, preventing seal stretching on wider phones like iPhone Max */
   }
   .invitation-card {
     padding: 1.5rem 0.8rem; /* Relaxed padding slightly to give it an elegant, taller shape */
