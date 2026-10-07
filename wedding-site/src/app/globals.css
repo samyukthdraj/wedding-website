@@ -508,6 +508,9 @@ body {
     padding: 5rem 0 3rem 0; /* Pushed even closer to the top */
     min-height: auto;
   }
+  .env-gatefold-wrapper {
+    max-width: 350px; /* Safely caps the width for ALL mobile sizes, preventing seal stretching on wider phones like iPhone Max */
+  }
   .invitation-card {
     padding: 1.5rem 0.8rem; /* Relaxed padding slightly to give it an elegant, taller shape */
   }
@@ -646,7 +649,11 @@ body {
   width: 100%;
   padding: 3rem 2rem 8rem 2rem;
   background-color: var(--bg-cream);
-  background-image: radial-gradient(circle at center, rgba(232, 180, 166, 0.45) 0%, transparent 100%);
+  background-image: radial-gradient(
+    circle at center,
+    rgba(232, 180, 166, 0.45) 0%,
+    transparent 100%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -668,18 +675,31 @@ body {
   gap: 6rem;
   z-index: 0;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
 }
 
 .watermark-item {
-  color: #E8B4A6;
+  color: #e8b4a6;
   font-size: 8rem;
   opacity: 0.3;
   transform: rotate(15deg);
 }
 
-.events-title, .events-grid {
+.events-title,
+.events-grid {
   z-index: 10;
   position: relative; /* Ensure text and cards stay above the pattern */
 }
@@ -835,8 +855,6 @@ body {
   gap: 0.5rem;
 }
 
-
-
 .directions-btn:hover {
   opacity: 0.9;
 }
@@ -968,7 +986,8 @@ body {
   opacity: 0.6;
   cursor: not-allowed;
 }
-.rsvp-success {
+
+.rsvp-success {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -999,7 +1018,6 @@ body {
   margin-top: 1rem;
 }
 
-
 .map-and-directions {
   background-color: var(--primary-gold);
   padding: 1rem;
@@ -1130,9 +1148,6 @@ body {
   background: transparent !important;
   color: var(--primary-gold) !important;
 }
-
-
-
 
 .events-rsvp-wrapper {
   position: relative;
