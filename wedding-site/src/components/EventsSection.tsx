@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaPlus } from "react-icons/fa";
-import { BsArrowReturnLeft } from "react-icons/bs";
+import { FaPlus, FaShare } from "react-icons/fa";
 
 type WeddingEvent = {
   title: string;
@@ -162,18 +161,8 @@ export const EventsSection = () => {
                         <span className="info-value">{event.location}</span>
                       </p>
 
-                      <div className="map-wrapper">
-                        <iframe 
-                          src={`https://maps.google.com/maps?q=${encodeURIComponent(event.address)}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
-                          width="100%" 
-                          height="180" 
-                          style={{ border: 0, borderRadius: "8px" }} 
-                          allowFullScreen 
-                          loading="lazy"
-                        />
-                      </div>
                       <a href={`https://maps.google.com/?q=${encodeURIComponent(event.address)}`} target="_blank" rel="noopener noreferrer" className="directions-btn">
-                        Get Directions <BsArrowReturnLeft className="icon-right" />
+                        Get Directions <FaShare style={{ marginLeft: '0.3rem' }} />
                       </a>
                     </div>
                   </div>
