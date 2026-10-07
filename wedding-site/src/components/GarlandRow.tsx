@@ -13,7 +13,7 @@ const RealisticGarland = ({ delay = 0, length = 1, flip = false }: { delay?: num
     }}
   >
     <Image 
-      src="/lotus-garland-transparent.jpg" 
+      src="/lotus-garland-transparent.png" 
       alt="Lotus Garland" 
       width={100} 
       height={350} 
