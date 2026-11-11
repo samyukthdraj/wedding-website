@@ -3,6 +3,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import {
+  COUPLE,
+  INVITATION_COPY,
+  SITE_ASSETS,
+} from "../constants/engagement";
 import { FloralCornerSprig, FloralDivider, WaxSealSvg } from "./FloralAccents";
 
 export const Envelope = () => {
@@ -28,7 +33,7 @@ export const Envelope = () => {
           <FloralCornerSprig className="card-floral-tr" />
 
           <Image
-            src="/ganesha-floral.svg"
+            src={SITE_ASSETS.ganeshaIcon}
             alt="Lord Ganesha"
             width={116}
             height={116}
@@ -45,34 +50,30 @@ export const Envelope = () => {
             style={{ marginTop: guestName ? "0.5rem" : "1rem" }}
           >
             {guestName
-              ? "With the blessings of the Almighty, we joyfully request the honour of your presence at the engagement of Midhuna & Gautham as they begin their forever journey."
-              : "With the blessings of the Almighty and the love of our families, we joyfully request the honour of your presence at the engagement of Midhuna & Gautham as they begin their forever journey."}
+              ? INVITATION_COPY.personalizedBlessing
+              : INVITATION_COPY.defaultBlessing}
           </p>
 
           <FloralDivider className="card-divider" />
 
-          <div className="together-text">Together with their families</div>
+          <div className="together-text">{COUPLE.togetherText}</div>
 
           <h2 className="names-main">
-            <span>Midhuna</span>
+            <span>{COUPLE.bride}</span>
             <span className="ampersand">&amp;</span>
-            <span>Gautham</span>
+            <span>{COUPLE.groom}</span>
           </h2>
 
           <div className="family-section">
             <div className="family-member">
-              <span className="relation">Daughter of</span>
-              <span className="parents-names">
-                Mr. Pavithran &amp; Smt. Sheena
-              </span>
+              <span className="relation">{COUPLE.brideFamily.relation}</span>
+              <span className="parents-names">{COUPLE.brideFamily.parents}</span>
             </div>
 
             <div className="family-member">
-              <span className="relation">Son of</span>
-              <span className="parents-names">Mr. Suresh &amp; Smt. Asha</span>
-              <span className="blessed-by">
-                Blessed by: Family and Friends
-              </span>
+              <span className="relation">{COUPLE.groomFamily.relation}</span>
+              <span className="parents-names">{COUPLE.groomFamily.parents}</span>
+              <span className="blessed-by">{COUPLE.groomFamily.blessedBy}</span>
             </div>
           </div>
         </div>

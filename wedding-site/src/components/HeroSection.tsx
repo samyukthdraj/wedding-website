@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { COUPLE, HERO_COPY, SITE_ASSETS } from "../constants/engagement";
 import { FloralCornerSprig } from "./FloralAccents";
 
 export const HeroSection = () => {
@@ -37,7 +38,7 @@ export const HeroSection = () => {
           className="hero-background"
           style={{
             y: yBg,
-            backgroundImage: "url('/bg-hero-floral.svg')",
+            backgroundImage: `url('${SITE_ASSETS.heroBackground}')`,
             backgroundPosition: "center center",
             backgroundSize: "cover",
           }}
@@ -94,11 +95,11 @@ export const HeroSection = () => {
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
           >
             <h1 className="hero-title">
-              <span>Midhuna</span>
+              <span>{COUPLE.bride}</span>
               <span className="weds">&amp;</span>
-              <span>Gautham</span>
+              <span>{COUPLE.groom}</span>
             </h1>
-            <div className="hero-details">ENGAGEMENT • DECEMBER 23, 2026</div>
+            <div className="hero-details">{HERO_COPY.subtitle}</div>
           </motion.div>
         </motion.div>
       </div>

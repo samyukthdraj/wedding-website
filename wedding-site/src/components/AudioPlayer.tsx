@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { SITE_ASSETS } from "../constants/engagement";
 
 const AudioWaveform = ({ isPlaying }: { isPlaying: boolean }) => (
   <div className={`audio-waveform ${isPlaying ? "playing" : ""}`}>
@@ -17,7 +18,7 @@ export const AudioPlayer = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined" && !audioRef.current) {
-      audioRef.current = new Audio("/bg-music.mp3");
+      audioRef.current = new Audio(SITE_ASSETS.audioTrack);
       audioRef.current.loop = true;
       
       // Attempt immediate autoplay on page load

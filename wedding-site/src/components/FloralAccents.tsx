@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import { COUPLE, ENGAGEMENT_EVENT } from "../constants/engagement";
 
 export const FloralCornerSprig = ({
   className,
@@ -354,7 +355,7 @@ export const WaxSealSvg = ({
       <circle cx="90" cy="90" r="49.5" fill={`url(#${bodyId})`} stroke="#FFF6F6" strokeWidth="1.2" />
       <circle cx="90" cy="90" r="46.5" fill="none" stroke="#D8A0A2" strokeWidth="0.7" strokeOpacity="0.5" />
 
-      {/* Curved Top Text: ENGAGEMENT */}
+      {/* Curved Top Text */}
       <text
         fontFamily="var(--font-jakarta), sans-serif"
         fontSize="7.6"
@@ -366,7 +367,7 @@ export const WaxSealSvg = ({
         dy="0.7"
       >
         <textPath href={`#${topArcId}`} startOffset="50%">
-          ENGAGEMENT
+          {ENGAGEMENT_EVENT.eventType}
         </textPath>
       </text>
       <text
@@ -378,11 +379,11 @@ export const WaxSealSvg = ({
         fill="#2A3C2F"
       >
         <textPath href={`#${topArcId}`} startOffset="50%">
-          ENGAGEMENT
+          {ENGAGEMENT_EVENT.eventType}
         </textPath>
       </text>
 
-      {/* Center Monogram: M & G */}
+      {/* Center Monogram */}
       <text
         x="90"
         y="99.8"
@@ -395,7 +396,7 @@ export const WaxSealSvg = ({
         fill="#FFF6F6"
         fillOpacity="0.85"
       >
-        M &amp; G
+        {COUPLE.monogram}
       </text>
       <text
         x="90"
@@ -408,10 +409,10 @@ export const WaxSealSvg = ({
         letterSpacing="1.8"
         fill="#2A3C2F"
       >
-        M &amp; G
+        {COUPLE.monogram}
       </text>
 
-      {/* Curved Bottom Text: DEC 23, 2026 */}
+      {/* Curved Bottom Text */}
       <text
         fontFamily="var(--font-jakarta), sans-serif"
         fontSize="7.6"
@@ -423,7 +424,7 @@ export const WaxSealSvg = ({
         dy="0.7"
       >
         <textPath href={`#${botArcId}`} startOffset="50%">
-          DEC 23, 2026
+          {ENGAGEMENT_EVENT.shortDate}
         </textPath>
       </text>
       <text
@@ -435,7 +436,7 @@ export const WaxSealSvg = ({
         fill="#2A3C2F"
       >
         <textPath href={`#${botArcId}`} startOffset="50%">
-          DEC 23, 2026
+          {ENGAGEMENT_EVENT.shortDate}
         </textPath>
       </text>
     </svg>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { SITE_ASSETS, SITE_METADATA } from "../constants/engagement";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -17,15 +18,15 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Midhuna & Gautham | Engagement",
-  description: "Engagement celebration of Midhuna & Gautham - December 23, 2026",
+  title: SITE_METADATA.title,
+  description: SITE_METADATA.description,
   openGraph: {
     images: [
       {
-        url: "/MG_favicon.png",
+        url: SITE_ASSETS.ogImage,
         width: 800,
         height: 600,
-        alt: "Midhuna & Gautham Logo",
+        alt: SITE_ASSETS.ogImageAlt,
       },
     ],
   },

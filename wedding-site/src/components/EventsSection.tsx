@@ -1,52 +1,38 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaPlus, FaShare } from "react-icons/fa";
+import {
+  COUPLE,
+  ENGAGEMENT_EVENT,
+  type EngagementEventConfig,
+  getDirectionsUrl,
+} from "../constants/engagement";
 import { FloralCrest, FloralDivider } from "./FloralAccents";
 
-type EngagementEvent = {
-  title: string;
-  date: string;
-  time: string;
-  startTimeISO: string;
-  endTimeISO: string;
-  location: string;
-  address: string;
-};
-
-const engagementEvent: EngagementEvent = {
-  title: "Engagement Ceremony",
-  date: "December 23, 2026",
-  time: "10:00 AM",
-  startTimeISO: "20261223T100000",
-  endTimeISO: "20261223T140000",
-  location: "Sree Krishna Temple",
-  address: "Sree Krishna Temple, 789 Divine Road, Placeholder City",
-};
-
-const generateGoogleCalendarLink = (event: EngagementEvent) => {
-  const title = encodeURIComponent(`Midhuna & Gautham - ${event.title}`);
-  const details = encodeURIComponent(
-    "Engagement celebration of Midhuna & Gautham",
+const generateGoogleCalendarLink = (event: EngagementEventConfig) => {
+  const title = encodeURIComponent(
+    `${COUPLE.bride} & ${COUPLE.groom} - ${event.title}`,
   );
+  const details = encodeURIComponent(event.calendarDescription);
   const location = encodeURIComponent(event.address);
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${event.startTimeISO}/${event.endTimeISO}&details=${details}&location=${location}`;
 };
 
-const generateIcsFile = (event: EngagementEvent) => {
+const generateIcsFile = (event: EngagementEventConfig) => {
   const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
-SUMMARY:Midhuna & Gautham - ${event.title}
+SUMMARY:${COUPLE.bride} & ${COUPLE.groom} - ${event.title}
 DTSTART:${event.startTimeISO}
 DTEND:${event.endTimeISO}
-DESCRIPTION:Engagement celebration of Midhuna & Gautham
+DESCRIPTION:${event.calendarDescription}
 LOCATION:${event.address}
 END:VEVENT
 END:VCALENDAR`;
   return `data:text/calendar;charset=utf8,${encodeURIComponent(icsData)}`;
 };
 
-const handleAddToCalendar = (event: EngagementEvent) => {
+const handleAddToCalendar = (event: EngagementEventConfig) => {
   const isIOS =
     /iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
@@ -55,7 +41,7 @@ const handleAddToCalendar = (event: EngagementEvent) => {
   if (isIOS || isMac) {
     const link = document.createElement("a");
     link.href = generateIcsFile(event);
-    link.download = "Midhuna-Gautham-Engagement.ics";
+    link.download = event.calendarFileName;
     link.click();
   } else {
     window.open(generateGoogleCalendarLink(event), "_blank");
@@ -63,6 +49,8 @@ const handleAddToCalendar = (event: EngagementEvent) => {
 };
 
 export const EventsSection = () => {
+  const directionsUrl = getDirectionsUrl(ENGAGEMENT_EVENT);
+
   return (
     <section className="events-section">
       <h2 className="events-title">Date &amp; Location</h2>
@@ -78,7 +66,7 @@ export const EventsSection = () => {
           <div className="location-card">
             <FloralCrest className="location-floral-crest" />
 
-            <h3 className="polaroid-caption">{engagementEvent.title}</h3>
+            <h3 className="polaroid-caption">{ENGAGEMENT_EVENT.title}</h3>
 
             <FloralDivider className="location-divider" />
 
@@ -86,19 +74,19 @@ export const EventsSection = () => {
               <div className="date-time-row">
                 <p className="event-info">
                   <span className="info-label">Date</span>
-                  <span className="info-value">{engagementEvent.date}</span>
+                  <span className="info-value">{ENGAGEMENT_EVENT.date}</span>
                 </p>
 
                 <p className="event-info">
                   <span className="info-label">Time</span>
-                  <span className="info-value">{engagementEvent.time}</span>
+                  <span className="info-value">{ENGAGEMENT_EVENT.time}</span>
                 </p>
               </div>
 
               <div className="calendar-buttons">
                 <button
                   type="button"
-                  onClick={() => handleAddToCalendar(engagementEvent)}
+                  onClick={() => handleAddToCalendar(ENGAGEMENT_EVENT)}
                   className="cal-btn"
                 >
                   <FaPlus className="icon-left" /> Add to Calendar
@@ -109,17 +97,15 @@ export const EventsSection = () => {
                 <p className="event-info venue-info">
                   <span className="info-label">Venue</span>
                   <span className="info-value venue-name">
-                    {engagementEvent.location}
+                    {ENGAGEMENT_EVENT.venueName}
                   </span>
                   <span className="info-address">
-                    {engagementEvent.address}
+                    {ENGAGEMENT_EVENT.address}
                   </span>
                 </p>
 
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(
-                    engagementEvent.address,
-                  )}`}
+                  href={directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="directions-btn"
