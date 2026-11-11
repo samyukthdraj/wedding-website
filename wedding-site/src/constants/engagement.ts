@@ -73,6 +73,26 @@ export const INVITATION_COPY = {
   defaultBlessing: `With the blessings of the Almighty and the love of our families, we joyfully request the honour of your presence at the engagement of ${COUPLE.bride} & ${COUPLE.groom} as they begin their forever journey.`,
 } as const;
 
+export const DEFAULT_SITE_URL = "https://midhunagautham.vercel.app/";
+
+export const DEFAULT_INVITE_MESSAGE_TEMPLATE = `Dear {name},
+
+With the love of our families, we joyfully invite you to ${COUPLE.bride} & ${COUPLE.groom}'s engagement celebration on ${ENGAGEMENT_EVENT.date}.
+
+Open your personalized invitation here:
+{link}`;
+
+/** Encodes a guest name into a URL-safe query value for ?guest=. */
+export function encodeGuestParam(guestName: string): string {
+  return encodeURIComponent(guestName.trim().replace(/\s+/g, "-"));
+}
+
+/** Builds a share-safe personalized URL for the guest query parameter. */
+export function buildGuestInviteUrl(baseUrl: string, guestName: string): string {
+  const cleanBase = baseUrl.trim().replace(/\/+$/, "");
+  return `${cleanBase}/?guest=${encodeGuestParam(guestName)}`;
+}
+
 export const SITE_ASSETS = {
   heroBackground: "/bg-hero-floral.svg",
   ganeshaIcon: "/ganesha-floral.svg",
