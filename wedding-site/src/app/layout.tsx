@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
 });
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-jakarta",
 });
 
 export const metadata: Metadata = {
-  title: "Midhuna & Gautham",
-  description: "A celebration of love - Midhuna & Gautham",
+  title: "Midhuna & Gautham | Engagement",
+  description: "Engagement celebration of Midhuna & Gautham - December 23, 2026",
   openGraph: {
     images: [
       {
@@ -33,10 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable}`}>
-        {children}
-      </body>
+    <html lang="en" className={`${plusJakarta.variable} ${cormorant.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="paperBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2" />
+      <stop offset="50%" stop-color="#F6F1EA" />
+      <stop offset="100%" stop-color="#F4EDE4" />
+    </linearGradient>
+    <radialGradient id="softBlushWash" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#F8D7C4" stop-opacity="0.18" />
+      <stop offset="60%" stop-color="#F4C9C9" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Symmetrical Cotton Off-White Background -->
+  <rect width="800" height="800" fill="url(#paperBase)" />
+  <rect width="800" height="800" fill="url(#softBlushWash)" />
+
+  <!-- Subtle Inner Stationery Frame -->
+  <rect x="22" y="22" width="756" height="756" fill="none" stroke="#B6C6B8" stroke-width="1.2" opacity="0.85" />
+  <rect x="30" y="30" width="740" height="740" fill="none" stroke="#E9CFCF" stroke-width="0.9" opacity="0.9" />
+
+  <!-- Subtle Vertical Center Seam Line -->
+  <line x1="400" y1="22" x2="400" y2="778" stroke="#D5C8BE" stroke-width="1.5" opacity="0.65" />
+</svg>

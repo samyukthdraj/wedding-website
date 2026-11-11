@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+  <defs>
+    <linearGradient id="sageStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B604F" />
+      <stop offset="100%" stop-color="#3A4D3E" />
+    </linearGradient>
+    <radialGradient id="haloGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F8D7C4" stop-opacity="0.35" />
+      <stop offset="65%" stop-color="#F4C9C9" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#FAF8F5" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Soft Pastel Halo -->
+  <circle cx="110" cy="110" r="95" fill="url(#haloGlow)" />
+
+  <!-- Botanical Wreath Frame -->
+  <circle cx="110" cy="110" r="88" fill="none" stroke="#C8D6C9" stroke-width="1.1" />
+  <circle cx="110" cy="110" r="83" fill="none" stroke="#EED0CE" stroke-width="0.9" stroke-dasharray="3 4" />
+
+  <!-- Top Floral Crown -->
+  <g transform="translate(110, 22)">
+    <ellipse cx="-16" cy="2" rx="8" ry="4" fill="#9BB39E" transform="rotate(-18 -16 2)" />
+    <ellipse cx="16" cy="2" rx="8" ry="4" fill="#9BB39E" transform="rotate(18 16 2)" />
+    <circle cx="0" cy="-2" r="5" fill="#F4C9C9" />
+    <circle cx="-7" cy="1" r="3.8" fill="#F8D7C4" />
+    <circle cx="7" cy="1" r="3.8" fill="#F8D7C4" />
+  </g>
+
+  <!-- Minimalist Fine-Line Lord Ganesha -->
+  <g fill="none" stroke="url(#sageStroke)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Crown (Mukut) -->
+    <path d="M96,68 L110,44 L124,68" stroke-width="2.2" fill="#F8D7C4" fill-opacity="0.4" />
+    <path d="M92,74 Q110,66 128,74" stroke-width="2.2" />
+    <circle cx="110" cy="40" r="3" fill="#D79C91" stroke="none" />
+
+    <!-- Tilak -->
+    <path d="M107,78 Q110,83 113,78" stroke="#D79C91" stroke-width="1.8" />
+    <circle cx="110" cy="85" r="1.8" fill="#D79C91" stroke="none" />
+
+    <!-- Left & Right Ears -->
+    <path d="M90,78 C70,74 62,92 67,108 C71,120 82,122 89,116" stroke-width="2.2" fill="#F4C9C9" fill-opacity="0.22" />
+    <path d="M130,78 C150,74 158,92 153,108 C149,120 138,122 131,116" stroke-width="2.2" fill="#F4C9C9" fill-opacity="0.22" />
+
+    <!-- Eyes & Brows -->
+    <path d="M95,88 Q101,85 105,89" stroke-width="1.8" />
+    <path d="M115,89 Q119,85 125,88" stroke-width="1.8" />
+    <circle cx="100" cy="92" r="1.5" fill="#3A4D3E" stroke="none" />
+    <circle cx="120" cy="92" r="1.5" fill="#3A4D3E" stroke="none" />
+
+    <!-- Head & Trunk -->
+    <path d="M90,78 C88,96 94,108 103,115 C106,126 104,136 94,142 C87,145 83,139 87,134" stroke-width="2.4" />
+    <path d="M130,78 C132,96 126,108 117,115 C115,127 111,143 102,148" stroke-width="2.2" />
+
+    <!-- Tusks -->
+    <path d="M94,109 Q89,115 86,118" stroke-width="1.8" />
+    <path d="M126,109 Q130,113 132,115" stroke-width="1.8" />
+
+    <!-- Shoulders & Lotus Seat -->
+    <path d="M84,126 C72,132 68,148 76,158 C88,168 132,168 144,158 C152,148 148,132 136,126" stroke-width="2" />
+    <path d="M74,166 Q110,176 146,166" stroke-width="2" stroke="#849B87" />
+
+    <!-- Lotus Petals Under Seat -->
+    <path d="M84,168 Q92,182 102,171" stroke="#D79C91" stroke-width="1.6" fill="#F4C9C9" fill-opacity="0.3" />
+    <path d="M102,171 Q110,185 118,171" stroke="#D79C91" stroke-width="1.6" fill="#F8D7C4" fill-opacity="0.35" />
+    <path d="M118,171 Q128,182 136,168" stroke="#D79C91" stroke-width="1.6" fill="#F4C9C9" fill-opacity="0.3" />
+  </g>
+</svg>
+
