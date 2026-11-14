@@ -1,8 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { COUPLE, HERO_COPY, SITE_ASSETS } from "../constants/engagement";
-import { FloralCornerSprig } from "./FloralAccents";
+import { COUPLE, HERO_COPY } from "../constants/engagement";
 
 export const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -20,11 +19,6 @@ export const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const yBg = useTransform(
-    heroScroll,
-    [0, 1],
-    ["0%", isMobile ? "18%" : "40%"],
-  );
   const yText = useTransform(
     heroScroll,
     [0, 1],
@@ -33,59 +27,6 @@ export const HeroSection = () => {
 
   return (
     <section ref={heroRef} className="hero-container">
-      <div className="hero-background-wrapper">
-        <motion.div
-          className="hero-background"
-          style={{
-            y: yBg,
-            backgroundImage: `url('${SITE_ASSETS.heroBackground}')`,
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-          }}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: [1.08, 1, 1.04] }}
-          transition={{
-            opacity: { duration: 1.8, ease: "easeOut" },
-            scale: {
-              duration: 28,
-              repeat: Infinity,
-              repeatType: "mirror",
-              ease: "easeInOut",
-            },
-          }}
-        />
-        <div className="hero-overlay" />
-      </div>
-
-      <motion.div
-        className="leaf-left"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, rotate: [-2, 3, -2] }}
-        transition={{
-          opacity: { duration: 1.6 },
-          rotate: { repeat: Infinity, duration: 7, ease: "easeInOut" },
-        }}
-      >
-        <FloralCornerSprig className="floral-corner-svg" />
-      </motion.div>
-
-      <motion.div
-        className="leaf-right"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, rotate: [2, -3, 2] }}
-        transition={{
-          opacity: { duration: 1.6 },
-          rotate: {
-            repeat: Infinity,
-            duration: 8,
-            ease: "easeInOut",
-            delay: 0.8,
-          },
-        }}
-      >
-        <FloralCornerSprig className="floral-corner-svg" />
-      </motion.div>
-
       <div className="hero-text-wrapper">
         <motion.div className="hero-content" style={{ y: yText }}>
           <motion.div

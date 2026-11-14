@@ -95,7 +95,7 @@ export function buildGuestInviteUrl(baseUrl: string, guestName: string): string 
 }
 
 export const SITE_ASSETS = {
-  heroBackground: "/bg-hero-floral.svg",
+  heroBackground: "/bg-engagement-authentic.jpg",
   ganeshaIcon: "/ganesha-floral.svg",
   audioTrack: "/bg-music.mp3",
   ogImage: "/MG_favicon.png",

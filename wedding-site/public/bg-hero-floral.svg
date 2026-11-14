@@ -1,23 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" preserveAspectRatio="xMidYMid slice">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2200" width="1600" height="2200" preserveAspectRatio="xMidYMin slice">
   <defs>
-    <radialGradient id="bgWash" cx="50%" cy="42%" r="65%">
+    <!-- Background Wash -->
+    <radialGradient id="bgWash" cx="50%" cy="30%" r="70%">
       <stop offset="0%" stop-color="#FDFBF8" />
-      <stop offset="65%" stop-color="#FAF8F5" />
-      <stop offset="100%" stop-color="#F5EFE8" />
+      <stop offset="55%" stop-color="#FAF8F5" />
+      <stop offset="85%" stop-color="#F6F0E8" />
+      <stop offset="100%" stop-color="#F3ECE2" />
     </radialGradient>
-    <radialGradient id="peachGlowTL" cx="15%" cy="18%" r="32%">
-      <stop offset="0%" stop-color="#F8D7C4" stop-opacity="0.45" />
+
+    <!-- Warm corner glows -->
+    <radialGradient id="peachGlowTL" cx="12%" cy="10%" r="35%">
+      <stop offset="0%" stop-color="#F8D7C4" stop-opacity="0.38" />
       <stop offset="100%" stop-color="#FAF8F5" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="pinkGlowTR" cx="85%" cy="18%" r="32%">
-      <stop offset="0%" stop-color="#F4C9C9" stop-opacity="0.45" />
+    <radialGradient id="pinkGlowTR" cx="88%" cy="10%" r="35%">
+      <stop offset="0%" stop-color="#F4C9C9" stop-opacity="0.38" />
       <stop offset="100%" stop-color="#FAF8F5" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="bottomGlow" cx="50%" cy="95%" r="55%">
-      <stop offset="0%" stop-color="#F8D7C4" stop-opacity="0.3" />
-      <stop offset="60%" stop-color="#F4C9C9" stop-opacity="0.16" />
-      <stop offset="100%" stop-color="#FAF8F5" stop-opacity="0" />
-    </radialGradient>
+
+    <!-- Tactile fine woven linen texture -->
+    <pattern id="linenTexture" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0,1.5 L6,1.5 M0,4.5 L6,4.5 M1.5,0 L1.5,6 M4.5,0 L4.5,6" stroke="#48604F" stroke-width="0.45" opacity="0.038" />
+      <path d="M0,0 L6,6 M6,0 L0,6" stroke="#B8947E" stroke-width="0.35" opacity="0.025" />
+    </pattern>
+
+    <!-- Flower & Leaf Gradients (Same as original beloved hero) -->
     <radialGradient id="pinkPetal" cx="40%" cy="35%" r="65%">
       <stop offset="0%" stop-color="#FCE8E8" />
       <stop offset="55%" stop-color="#F4C9C9" />
@@ -42,7 +49,7 @@
       <stop offset="100%" stop-color="#7F9783" />
     </linearGradient>
 
-    <!-- Reusable Rose/Peony Bloom -->
+    <!-- Reusable Floral Elements -->
     <g id="pinkPeony">
       <circle cx="0" cy="-24" r="24" fill="url(#pinkPetal)" opacity="0.92" />
       <circle cx="22" cy="-10" r="23" fill="url(#pinkPetal)" opacity="0.9" />
@@ -91,18 +98,115 @@
       <ellipse cx="58" cy="100" rx="9" ry="14" fill="url(#sageLeaf2)" opacity="0.85" transform="rotate(45 58 100)" />
       <ellipse cx="86" cy="115" rx="8" ry="13" fill="url(#sageLeaf2)" opacity="0.9" transform="rotate(-35 86 115)" />
     </g>
+
+    <!-- Subdued Tone-on-Tone Embossed Damask / Filigree Motif (Inner border pattern) -->
+    <g id="subtleFiligreeBranch">
+      <!-- Shadow Paths (Warm Soft Beige Debossed Paper Shadow) -->
+      <path d="M 0,0 C 25,35 15,75 38,105 C 60,135 95,120 90,88 C 85,58 50,62 48,85 C 44,108 70,128 78,155 C 86,182 60,212 30,225" fill="none" stroke="#DACDC2" stroke-width="1.8" stroke-linecap="round" opacity="0.32" />
+      <path d="M 38,105 C 22,118 10,136 12,158 C 15,180 38,194 52,176" fill="none" stroke="#DACDC2" stroke-width="1.4" stroke-linecap="round" opacity="0.26" />
+      <path d="M 48,85 C 60,76 76,77 80,92" fill="none" stroke="#DACDC2" stroke-width="1.3" stroke-linecap="round" opacity="0.25" />
+      <path d="M 30,225 C 14,234 4,250 8,272 C 12,298 42,308 58,286 C 70,268 66,246 50,242 C 34,238 26,254 34,267" fill="none" stroke="#DACDC2" stroke-width="1.8" stroke-linecap="round" opacity="0.32" />
+      <path d="M 20,25 C 8,38 4,58 12,72" fill="none" stroke="#DACDC2" stroke-width="1.2" stroke-linecap="round" opacity="0.22" />
+      <!-- Subtle Leaflet Shadows -->
+      <path d="M 18,55 Q 29,46 37,60 Q 26,65 18,55 Z" fill="#DACDC2" opacity="0.16" />
+      <path d="M 64,120 Q 75,112 83,126 Q 71,131 64,120 Z" fill="#DACDC2" opacity="0.16" />
+      <path d="M 28,180 Q 38,172 46,186 Q 35,191 28,180 Z" fill="#DACDC2" opacity="0.16" />
+      <path d="M 54,250 Q 65,242 73,256 Q 62,261 54,250 Z" fill="#DACDC2" opacity="0.16" />
+
+      <!-- Highlight Paths (Soft Off-White Light Reflection offset -1px) -->
+      <path d="M -1,-1 C 24,34 14,74 37,104 C 59,134 94,119 89,87 C 84,57 49,61 47,84 C 43,107 69,127 77,154 C 85,181 59,211 29,224" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.65" />
+      <path d="M 37,104 C 21,117 9,135 11,157 C 14,179 37,193 51,175" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" opacity="0.55" />
+      <path d="M 47,84 C 59,75 75,76 79,91" fill="none" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.5" />
+      <path d="M 29,224 C 13,233 3,249 7,271 C 11,297 41,307 57,285 C 69,267 65,245 49,241 C 33,237 25,253 33,266" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.65" />
+      <path d="M 19,24 C 7,37 3,57 11,71" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.48" />
+      <!-- Subtle Leaflet Highlights -->
+      <path d="M 17,54 Q 28,45 36,59 Q 25,64 17,54 Z" fill="#FFFFFF" opacity="0.35" />
+      <path d="M 63,119 Q 74,111 82,125 Q 70,130 63,119 Z" fill="#FFFFFF" opacity="0.35" />
+      <path d="M 27,179 Q 37,171 45,185 Q 34,190 27,179 Z" fill="#FFFFFF" opacity="0.35" />
+      <path d="M 53,249 Q 64,241 72,255 Q 61,260 53,249 Z" fill="#FFFFFF" opacity="0.35" />
+    </g>
+
+    <!-- Subdued Damask Medallion / Arabesque Motif for inner arch points -->
+    <g id="damaskMedallion">
+      <!-- Shadow -->
+      <path d="M 0,-25 C 15,-15 25,0 18,18 C 12,32 0,42 0,42 C 0,42 -12,32 -18,18 C -25,0 -15,-15 0,-25 Z" fill="none" stroke="#DACDC2" stroke-width="1.6" opacity="0.3" />
+      <circle cx="0" cy="5" r="4.5" fill="#DACDC2" opacity="0.22" />
+      <path d="M -10,0 C -20,8 -22,25 -8,28" fill="none" stroke="#DACDC2" stroke-width="1.2" opacity="0.26" />
+      <path d="M 10,0 C 20,8 22,25 8,28" fill="none" stroke="#DACDC2" stroke-width="1.2" opacity="0.26" />
+      <!-- Highlight -->
+      <path d="M -1,-26 C 14,-16 24,-1 17,17 C 11,31 -1,41 -1,41 C -1,41 -13,31 -19,17 C -26,-1 -16,-16 -1,-26 Z" fill="none" stroke="#FFFFFF" stroke-width="1.6" opacity="0.65" />
+      <circle cx="-1" cy="4" r="4.5" fill="#FFFFFF" opacity="0.45" />
+      <path d="M -11,-1 C -21,7 -23,24 -9,27" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.55" />
+      <path d="M 9,-1 C 19,7 21,24 7,27" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.55" />
+    </g>
   </defs>
 
-  <!-- Base Wash -->
-  <rect width="1600" height="1000" fill="url(#bgWash)" />
-  <rect width="1600" height="1000" fill="url(#peachGlowTL)" />
-  <rect width="1600" height="1000" fill="url(#pinkGlowTR)" />
-  <rect width="1600" height="1000" fill="url(#bottomGlow)" />
+  <!-- Base Color & Woven Paper Washes -->
+  <rect width="1600" height="2200" fill="url(#bgWash)" />
+  <rect width="1600" height="2200" fill="url(#peachGlowTL)" />
+  <rect width="1600" height="2200" fill="url(#pinkGlowTR)" />
+  <rect width="1600" height="2200" fill="url(#linenTexture)" />
 
-  <!-- Subtle Botanical Arch Framing -->
-  <path d="M110,940 L110,360 C110,165 360,80 800,80 C1240,80 1490,165 1490,360 L1490,940" fill="none" stroke="#D5DFD6" stroke-width="1.5" opacity="0.7" />
-  <path d="M126,940 L126,370 C126,182 370,98 800,98 C1230,98 1474,182 1474,370 L1474,940" fill="none" stroke="#ECCFCF" stroke-width="1" opacity="0.7" />
+  <!-- =======================================================
+       THE BORDER THINGY: Continuous Elegant Arch Framing
+       ======================================================= -->
+  <!-- Outer Arch Line -->
+  <path d="M 110,2180 L 110,380 C 110,165 360,80 800,80 C 1240,80 1490,165 1490,380 L 1490,2180" fill="none" stroke="#D5DFD6" stroke-width="1.5" opacity="0.75" />
+  <!-- Inner Arch Line -->
+  <path d="M 126,2180 L 126,390 C 126,182 370,98 800,98 C 1230,98 1474,182 1474,390 L 1474,2180" fill="none" stroke="#ECCFCF" stroke-width="1.1" opacity="0.75" />
+  <!-- Dotted Delicate Guide Line -->
+  <path d="M 142,2180 L 142,405 C 142,200 380,112 800,112 C 1220,112 1458,200 1458,405 L 1458,2180" fill="none" stroke="#D8CDC4" stroke-width="0.8" stroke-dasharray="3,5" opacity="0.55" />
 
+  <!-- =======================================================
+       SUBTLE INNER PATTERNS: Tone-on-Tone Embossed Filigree
+       (Runs down along the inner side of the arch border)
+       ======================================================= -->
+  <!-- Left Side Inner Filigree Band (Extends throughout Hero and Letter sections) -->
+  <g transform="translate(130, 240) scale(0.95)">
+    <use href="#damaskMedallion" transform="translate(20, 0) scale(0.85)" />
+    <use href="#subtleFiligreeBranch" transform="translate(0, 40)" />
+    <use href="#subtleFiligreeBranch" transform="translate(25, 330) scale(-0.95, 0.95)" />
+    <use href="#damaskMedallion" transform="translate(15, 630) scale(0.8)" />
+    <use href="#subtleFiligreeBranch" transform="translate(0, 680)" />
+    <use href="#subtleFiligreeBranch" transform="translate(25, 970) scale(-0.95, 0.95)" />
+    <use href="#damaskMedallion" transform="translate(15, 1270) scale(0.8)" />
+    <use href="#subtleFiligreeBranch" transform="translate(0, 1320)" />
+    <use href="#subtleFiligreeBranch" transform="translate(25, 1610) scale(-0.95, 0.95)" />
+    <use href="#damaskMedallion" transform="translate(15, 1910) scale(0.8)" />
+  </g>
+
+  <!-- Right Side Inner Filigree Band (Mirrored along right inner border) -->
+  <g transform="translate(1470, 240) scale(-0.95, 0.95)">
+    <use href="#damaskMedallion" transform="translate(20, 0) scale(0.85)" />
+    <use href="#subtleFiligreeBranch" transform="translate(0, 40)" />
+    <use href="#subtleFiligreeBranch" transform="translate(25, 330) scale(-0.95, 0.95)" />
+    <use href="#damaskMedallion" transform="translate(15, 630) scale(0.8)" />
+    <use href="#subtleFiligreeBranch" transform="translate(0, 680)" />
+    <use href="#subtleFiligreeBranch" transform="translate(25, 970) scale(-0.95, 0.95)" />
+    <use href="#damaskMedallion" transform="translate(15, 1270) scale(0.8)" />
+    <use href="#subtleFiligreeBranch" transform="translate(0, 1320)" />
+    <use href="#subtleFiligreeBranch" transform="translate(25, 1610) scale(-0.95, 0.95)" />
+    <use href="#damaskMedallion" transform="translate(15, 1910) scale(0.8)" />
+  </g>
+
+  <!-- Top Arch Inner Subtle Scroll Accents -->
+  <g transform="translate(500, 125) scale(0.75)" opacity="0.85">
+    <use href="#damaskMedallion" />
+  </g>
+  <g transform="translate(1100, 125) scale(0.75)" opacity="0.85">
+    <use href="#damaskMedallion" />
+  </g>
+  <g transform="translate(320, 185) rotate(-28) scale(0.65)" opacity="0.8">
+    <use href="#subtleFiligreeBranch" />
+  </g>
+  <g transform="translate(1280, 185) scale(-1, 1) rotate(-28) scale(0.65)" opacity="0.8">
+    <use href="#subtleFiligreeBranch" />
+  </g>
+
+  <!-- =======================================================
+       OUTER FLORALS: Original Beloved Delicate Proportions
+       (Keeps outer corner florals compact and graceful)
+       ======================================================= -->
   <!-- Top Left Floral Cluster -->
   <g transform="translate(-10,-10) scale(1.35)">
     <use href="#eucalyptusBranch" transform="translate(80,10) rotate(12)" />
@@ -134,58 +238,15 @@
     <circle cx="268" cy="108" r="3" fill="#F4C9C9" opacity="0.9" />
   </g>
 
-  <!-- Top Center Delicate Garland Sprig -->
-  <g transform="translate(800, 52)" opacity="0.92">
-    <use href="#eucalyptusBranch" transform="translate(-175,-20) rotate(58) scale(0.95)" />
-    <use href="#eucalyptusBranch" transform="translate(175,-20) scale(-0.95,0.95) rotate(58)" />
-    <use href="#creamBlossom" transform="translate(-52, 8) scale(0.88)" />
-    <use href="#creamBlossom" transform="translate(52, 8) scale(0.88)" />
-    <use href="#peachRose" transform="translate(0, 6) scale(0.98)" />
-    <use href="#pinkPeony" transform="translate(-105, -2) scale(0.8)" />
-    <use href="#pinkPeony" transform="translate(105, -2) scale(0.8)" />
-    <use href="#peachRose" transform="translate(-158, 12) scale(0.65)" />
-    <use href="#peachRose" transform="translate(158, 12) scale(0.65)" />
-  </g>
-
-  <!-- Bottom Center Delicate Garland Sprig (keeps portrait mobile screens balanced) -->
-  <g transform="translate(800, 952) scale(1, -1)" opacity="0.88">
-    <use href="#eucalyptusBranch" transform="translate(-170,-18) rotate(58) scale(0.9)" />
-    <use href="#eucalyptusBranch" transform="translate(170,-18) scale(-0.9,0.9) rotate(58)" />
-    <use href="#creamBlossom" transform="translate(-48, 10) scale(0.82)" />
-    <use href="#creamBlossom" transform="translate(48, 10) scale(0.82)" />
-    <use href="#pinkPeony" transform="translate(0, 8) scale(0.9)" />
-    <use href="#peachRose" transform="translate(-102, 2) scale(0.75)" />
-    <use href="#peachRose" transform="translate(102, 2) scale(0.75)" />
-  </g>
-
-  <!-- Bottom Left Soft Botanical Accent -->
-  <g transform="translate(0, 1000) scale(1.25, -1.25)" opacity="0.92">
-    <use href="#eucalyptusBranch" transform="translate(45, 5) rotate(15)" />
-    <use href="#eucalyptusBranch" transform="translate(150, 10) rotate(55)" />
-    <use href="#peachRose" transform="translate(88, 72) scale(1.1)" />
-    <use href="#pinkPeony" transform="translate(182, 42) scale(0.95)" />
-    <use href="#creamBlossom" transform="translate(36, 132) scale(0.88)" />
-    <use href="#creamBlossom" transform="translate(250, 26) scale(0.75)" />
-  </g>
-
-  <!-- Bottom Right Soft Botanical Accent -->
-  <g transform="translate(1600, 1000) scale(-1.25, -1.25)" opacity="0.92">
-    <use href="#eucalyptusBranch" transform="translate(45, 5) rotate(15)" />
-    <use href="#eucalyptusBranch" transform="translate(150, 10) rotate(55)" />
-    <use href="#pinkPeony" transform="translate(88, 72) scale(1.1)" />
-    <use href="#peachRose" transform="translate(182, 42) scale(0.95)" />
-    <use href="#creamBlossom" transform="translate(36, 132) scale(0.88)" />
-    <use href="#creamBlossom" transform="translate(250, 26) scale(0.75)" />
-  </g>
-
   <!-- Floating Soft Petals -->
   <g opacity="0.55">
     <ellipse cx="420" cy="240" rx="8" ry="4.5" fill="#F4C9C9" transform="rotate(-25 420 240)" />
     <ellipse cx="1180" cy="230" rx="8" ry="4.5" fill="#F8D7C4" transform="rotate(28 1180 230)" />
     <ellipse cx="320" cy="640" rx="7" ry="4" fill="#F8D7C4" transform="rotate(35 320 640)" />
     <ellipse cx="1290" cy="610" rx="7" ry="4" fill="#F4C9C9" transform="rotate(-35 1290 610)" />
-    <circle cx="510" cy="790" r="3" fill="#B5C7B7" />
-    <circle cx="1090" cy="805" r="3" fill="#E8B8AF" />
+    <ellipse cx="350" cy="1150" rx="7" ry="4" fill="#F8D7C4" transform="rotate(25 350 1150)" />
+    <ellipse cx="1250" cy="1180" rx="7" ry="4" fill="#F4C9C9" transform="rotate(-30 1250 1180)" />
+    <ellipse cx="380" cy="1720" rx="7" ry="4" fill="#F4C9C9" transform="rotate(-15 380 1720)" />
+    <ellipse cx="1220" cy="1750" rx="7" ry="4" fill="#F8D7C4" transform="rotate(20 1220 1750)" />
   </g>
 </svg>
-

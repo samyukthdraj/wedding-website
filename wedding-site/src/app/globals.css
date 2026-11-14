@@ -36,6 +36,36 @@ body {
 }
 
 /* =========================================
+   CONTINUOUS HERO & ENVELOPE ZONE
+   ========================================= */
+.hero-envelope-zone {
+  position: relative;
+  width: 100%;
+  background-color: #FAF5F0;
+  background-image: url("/bg-engagement-authentic.jpg");
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-envelope-zone::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 245, 240, 0) 0%,
+    rgba(250, 248, 245, 0.95) 100%
+  );
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* =========================================
    1. HERO SECTION
    ========================================= */
 .hero-container {
@@ -44,7 +74,7 @@ body {
   height: 100dvh;
   width: 100%;
   overflow: hidden;
-  background: var(--bg-offwhite);
+  background: transparent;
 }
 
 .hero-background-wrapper {
@@ -208,7 +238,7 @@ body {
 .invitation-section {
   position: relative;
   width: 100%;
-  background: var(--bg-offwhite);
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;

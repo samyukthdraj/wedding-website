@@ -10,12 +10,14 @@ export default function Home() {
     <main>
       <AudioPlayer />
 
-      <HeroSection />
+      <div className="hero-envelope-zone">
+        <HeroSection />
 
-      <div className="invitation-section">
-        <Suspense fallback={<div className="env-wrapper" />}>
-          <Envelope />
-        </Suspense>
+        <div className="invitation-section">
+          <Suspense fallback={<div className="env-wrapper" />}>
+            <Envelope />
+          </Suspense>
+        </div>
       </div>
 
       <div className="events-rsvp-wrapper">
