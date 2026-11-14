@@ -58,10 +58,11 @@ export const ENGAGEMENT_EVENT: EngagementEventConfig = {
   venueName: "Thimiri Bank Convention Centre",
   address: "Kuttamath, Pilicode, Kasaragod",
   coordinates: {
-    latitude: null,
-    longitude: null,
+    latitude: 12.21085,
+    longitude: 75.16524,
   },
-  customDirectionsUrl: "https://share.google/6xdzNO5b9HX7ORNMm",
+  customDirectionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=Thimiri+Bank+Convention+Centre,+Kuttamath,+Pilicode,+Kasaragod",
 };
 
 export const HERO_COPY = {
@@ -106,7 +107,7 @@ export const SITE_METADATA = {
   description: `Engagement celebration of ${COUPLE.bride} & ${COUPLE.groom} - ${ENGAGEMENT_EVENT.date}`,
 } as const;
 
-/** Builds the Google Maps directions URL, preferring custom URL, then coordinates, then address. */
+/** Builds the Google Maps directions URL, navigating directly into turn-by-turn directions mode. */
 export function getDirectionsUrl(event: EngagementEventConfig): string {
   if (event.customDirectionsUrl.trim()) {
     return event.customDirectionsUrl.trim();
@@ -114,9 +115,13 @@ export function getDirectionsUrl(event: EngagementEventConfig): string {
 
   const { latitude, longitude } = event.coordinates;
   if (latitude !== null && longitude !== null) {
-    return `https://maps.google.com/?q=${latitude},${longitude}`;
+    return `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
   }
 
-  return `https://maps.google.com/?q=${encodeURIComponent(event.address)}`;
+  const destination = event.address.includes(event.venueName)
+    ? event.address
+    : `${event.venueName}, ${event.address}`;
+
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
 }
 
