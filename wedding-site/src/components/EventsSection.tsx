@@ -9,16 +9,23 @@ import {
 } from "../constants/engagement";
 import { FloralCrest, FloralDivider } from "./FloralAccents";
 
+const getEventFullLocation = (event: EngagementEventConfig) => {
+  return event.address.includes(event.venueName)
+    ? event.address
+    : `${event.venueName}, ${event.address}`;
+};
+
 const generateGoogleCalendarLink = (event: EngagementEventConfig) => {
   const title = encodeURIComponent(
     `${COUPLE.bride} & ${COUPLE.groom} - ${event.title}`,
   );
   const details = encodeURIComponent(event.calendarDescription);
-  const location = encodeURIComponent(event.address);
+  const location = encodeURIComponent(getEventFullLocation(event));
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${event.startTimeISO}/${event.endTimeISO}&details=${details}&location=${location}`;
 };
 
 const generateIcsFile = (event: EngagementEventConfig) => {
+  const fullLocation = getEventFullLocation(event);
   const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
@@ -26,7 +33,7 @@ SUMMARY:${COUPLE.bride} & ${COUPLE.groom} - ${event.title}
 DTSTART:${event.startTimeISO}
 DTEND:${event.endTimeISO}
 DESCRIPTION:${event.calendarDescription}
-LOCATION:${event.address}
+LOCATION:${fullLocation}
 END:VEVENT
 END:VCALENDAR`;
   return `data:text/calendar;charset=utf8,${encodeURIComponent(icsData)}`;

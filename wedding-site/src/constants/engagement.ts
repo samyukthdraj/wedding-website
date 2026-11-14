@@ -55,13 +55,13 @@ export const ENGAGEMENT_EVENT: EngagementEventConfig = {
   endTimeISO: "20261223T140000",
   calendarDescription: `Engagement celebration of ${COUPLE.bride} & ${COUPLE.groom}`,
   calendarFileName: `${COUPLE.bride}-${COUPLE.groom}-Engagement.ics`,
-  venueName: "Sree Krishna Temple",
-  address: "Sree Krishna Temple, 789 Divine Road, Placeholder City",
+  venueName: "Thimiri Bank Convention Centre",
+  address: "Kuttamath, Pilicode, Kasaragod",
   coordinates: {
     latitude: null,
     longitude: null,
   },
-  customDirectionsUrl: "",
+  customDirectionsUrl: "https://share.google/6xdzNO5b9HX7ORNMm",
 };
 
 export const HERO_COPY = {
