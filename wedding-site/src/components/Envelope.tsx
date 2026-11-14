@@ -86,7 +86,7 @@ export const Envelope = () => {
           <motion.div
             className="env-left-flap"
             animate={{ rotateY: isOpen ? -180 : 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <FloralCornerSprig className="flap-floral-top" />
             <FloralCornerSprig className="flap-floral-bottom" />
@@ -98,7 +98,7 @@ export const Envelope = () => {
           <motion.div
             className="env-right-flap"
             animate={{ rotateY: isOpen ? 180 : 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <FloralCornerSprig className="flap-floral-top flap-floral-right-top" />
             <FloralCornerSprig className="flap-floral-bottom flap-floral-right-bottom" />
