@@ -41,28 +41,12 @@ body {
 .hero-envelope-zone {
   position: relative;
   width: 100%;
-  background-color: #FAF5F0;
+  background-color: #faf5f0;
   background-image: url("/bg-engagement-authentic.jpg");
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
   overflow: hidden;
-}
-
-.hero-envelope-zone::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 180px;
-  background: linear-gradient(
-    to bottom,
-    rgba(250, 245, 240, 0) 0%,
-    rgba(250, 248, 245, 0.95) 100%
-  );
-  pointer-events: none;
-  z-index: 6;
 }
 
 /* =========================================
@@ -212,6 +196,11 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero-envelope-zone {
+    background-image: url("/bg-engagement-mobile.jpg");
+    background-size: cover;
+    background-position: top center;
+  }
   .leaf-left,
   .leaf-right {
     width: 118px;

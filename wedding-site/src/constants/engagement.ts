@@ -36,11 +36,11 @@ export const COUPLE = {
   togetherText: "Together with their families",
   brideFamily: {
     relation: "Daughter of",
-    parents: "Mr. Pavithran & Smt. Sheena",
+    parents: "Mr. Pavithran & Mrs. Sheena",
   },
   groomFamily: {
     relation: "Son of",
-    parents: "Mr. Suresh & Smt. Asha",
+    parents: "Mr. Suresh & Mrs. Asha",
     blessedBy: "Blessed by: Family and Friends",
   },
 } as const;
@@ -50,7 +50,7 @@ export const ENGAGEMENT_EVENT: EngagementEventConfig = {
   title: "Engagement Ceremony",
   date: "December 23, 2026",
   shortDate: "DEC 23, 2026",
-  time: "10:00 AM",
+  time: "09:30 AM",
   startTimeISO: "20261223T100000",
   endTimeISO: "20261223T140000",
   calendarDescription: `Engagement celebration of ${COUPLE.bride} & ${COUPLE.groom}`,
@@ -89,7 +89,10 @@ export function encodeGuestParam(guestName: string): string {
 }
 
 /** Builds a share-safe personalized URL for the guest query parameter. */
-export function buildGuestInviteUrl(baseUrl: string, guestName: string): string {
+export function buildGuestInviteUrl(
+  baseUrl: string,
+  guestName: string,
+): string {
   const cleanBase = baseUrl.trim().replace(/\/+$/, "");
   return `${cleanBase}/?guest=${encodeGuestParam(guestName)}`;
 }
@@ -124,4 +127,3 @@ export function getDirectionsUrl(event: EngagementEventConfig): string {
 
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
 }
-
